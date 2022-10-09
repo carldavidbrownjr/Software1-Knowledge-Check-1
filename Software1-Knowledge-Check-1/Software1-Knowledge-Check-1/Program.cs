@@ -12,7 +12,8 @@
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("Would you like to make another calculation?");
-                Console.WriteLine("Press Y to continue. Any other key to escape");
+                Console.WriteLine("Press Y to continue. Any Other Key to exit!");
+                Console.WriteLine("");
                 Console.Write("Continue [Y]? ");
                 var tempInput = Console.ReadLine().ToUpper();
                 switch (tempInput)

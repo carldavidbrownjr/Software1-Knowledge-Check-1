@@ -8,23 +8,18 @@ namespace Software1_Knowledge_Check_1
 {
     public class Calculator
     {
-        private int first = 0;
-        private int second = 0;
-        private int operation = -1;
-        private string operationString = "";
-        private string operationSymbol = "";
-        private double resultDouble = 0.0;
-        private int inputCount = 0;
-        private string indent = "    ";
+        private int first;
+        private int second;
+        private int operation;
+        private string operationString;
+        private string operationSymbol;
+        private double resultDouble;
+        private int inputCount;
+        private const string indent = "    ";
         public int init()
         {
-            this.first = 0;
-            this.second = 0;
-            this.operation = -1;
-            this.operationString = "";
-            this.operationSymbol = "";
-            this.resultDouble = 0.0;
-            this.inputCount = 0;
+            //reinitialize object variables to default
+            resetVariables();
 
 
             // get operator from user
@@ -44,6 +39,17 @@ namespace Software1_Knowledge_Check_1
 
         }
 
+        private void resetVariables()
+        {
+            this.first = 0;
+            this.second = 0;
+            this.operation = -1;
+            this.operationString = "";
+            this.operationSymbol = "";
+            this.resultDouble = 0.0;
+            this.inputCount = 0;
+        }
+
         private int getOperator()
         {
             int returnValue = -1;
@@ -52,8 +58,10 @@ namespace Software1_Knowledge_Check_1
             Console.WriteLine("{0}(2) for Subtraction.", indent);
             Console.WriteLine("{0}(3) for Multiplication.", indent);
             Console.WriteLine("{0}(4) for Division", indent);
+            Console.WriteLine("");
+            Console.WriteLine("{0}(Q) to Quit", indent);
             Console.Write("Operation: ");
-            var tempInput = Console.ReadLine();
+            var tempInput = Console.ReadLine().ToUpper();
             switch (tempInput)
             {
                 case "1":
@@ -79,6 +87,9 @@ namespace Software1_Knowledge_Check_1
                     this.operationString = "divide";
                     this.operationSymbol = "/";
                     returnValue = 1;
+                    break;
+                case "Q":
+                    System.Environment.Exit(1);
                     break;
                 default:
                     
